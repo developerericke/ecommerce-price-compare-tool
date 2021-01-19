@@ -1,0 +1,103 @@
+{% load static %}
+.card-header{
+    text-align: center;
+}
+@media screen and ( max-width: 640px ){
+ form{
+     width:80%;
+     margin:30px 10%;
+ }
+ #discl{
+     position: -webkit-sticky;
+     position: sticky;
+     top: 0;
+     left: 0;
+     width: 100%;
+     text-align: center;
+     z-index: 20;
+ }
+    #result-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    #result-wrapper .card{
+        flex: 0 0 95%;
+        margin:20px 2.5%;
+    }
+     #result-wrapper img{
+         width: 100%;
+         height:40vh;
+     }
+    .card a{
+        text-align: center;
+    }
+    #searched_products{
+       width:95%;
+       margin:15% 2.5%;
+       height: 150px;
+
+   }
+    #searched_products p{
+        font-size: small;
+        font-weight: bold;
+    }
+    #searched_products img{
+        height: 100px;
+        width: 150px;
+
+    }
+
+}
+@media screen and ( min-width: 768px ){
+form{
+     width:60%;
+     margin:50px 20%;
+
+ }
+ form input{
+      font-size: x-large;
+     height: 50px;
+     min-height: 50px;
+     max-height: 50px;
+ }
+ #discl{
+position: relative;
+     top: 0;
+     left: 10%;
+     width: 80%;
+     text-align: center;
+     z-index: 20;
+     font-size: small;
+ }
+ #result-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+
+    }
+    #result-wrapper .card{
+        flex: 0 0 30%;
+        margin: 0 1.5%;
+
+    }
+     #result-wrapper img{
+         width: 100%;
+         height:300px;
+     }
+    .card a{
+        text-align: center;
+    }
+   #searched_products{
+       width:80%;
+       margin:5% 10%;
+       height: 250px;
+
+   }
+#searched_products img{
+    height: 200px;
+    width: 250px;
+
+}
+
+}

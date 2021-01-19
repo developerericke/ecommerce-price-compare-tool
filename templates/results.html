@@ -1,0 +1,121 @@
+{% extends 'skeleton.html' %}
+{% load static %}
+
+
+{% block pageTitle %}
+  <title>Results</title>
+{% endblock %}
+{% block internalLinks %}
+ <link rel="stylesheet" type="text/css" href="{% static '/css/results.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/splide.min.css' %}">
+{% endblock %}
+
+{% block  pageContent %}
+<div id=page-content">
+<div id="discl" style="display: none" class="bg-warning text-dark font-weight-bold" >Note that this search is real time.The results you get are the latest as at the time you perform a search <span data-target="discl" style="font-size: medium;cursor: pointer" class="text-right close p-0 m-0 text-danger">x</span> </div>
+
+<form >
+<div class="form-group">
+   <div class="input-group mb-3">
+  <input type="search" name="searchproduct" class="form-control text-center border-right-0" placeholder="Search another product ...">
+       <div class="input-group-append bg-white">
+           <div class="input-group-text bg-white">
+                <i class="fa fa-search"></i>
+           </div>
+
+       </div>
+   </div>
+
+</div>
+</form>
+<h5 class="text-center text-info ">Price variations for Product 123 as of 12-02-2020</h5>
+<div id="result-wrapper">
+
+    <div class="card">
+      <div class="card-header">
+      <div>Website1 : www.webiste1.com</div>
+      </div>
+        <div class="card-body">
+          <img src="{% static '/images/image1.jpg' %}" alt="product image">
+          <div class="p-1">Kes 12,000</div>
+          <div class="p-1">lorem ipsum</div>
+          <div class="p-1">Ratings</div>
+
+        </div>
+        <div class="card-footer text-center">
+        <a href="#" class="btn btn-sm btn-info">View on www.website1.com </a>
+        </div>
+    </div>
+ <div class="card">
+      <div class="card-header">
+      <div>Website1 : www.webiste1.com</div>
+      </div>
+        <div class="card-body">
+          <img src="{% static '/images/image1.jpg' %}" alt="product image">
+          <div class="p-1">Kes 12,000</div>
+          <div class="p-1">lorem ipsum</div>
+          <div class="p-1">Ratings</div>
+
+        </div>
+        <div class="card-footer text-center">
+        <a href="#" class="btn btn-sm btn-info">View on www.website1.com </a>
+        </div>
+    </div>
+     <div class="card">
+      <div class="card-header">
+      <div>Website1 : www.webiste1.com</div>
+      </div>
+        <div class="card-body">
+          <img src="{% static '/images/image1.jpg' %}" alt="product image">
+          <div class="p-1">Kes 12,000</div>
+          <div class="p-1">lorem ipsum</div>
+          <div class="p-1">Ratings</div>
+
+        </div>
+        <div class="card-footer text-center">
+        <a href="#" class="btn btn-sm btn-info">View on www.website1.com </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="splide  " id ="searched_products">
+    <h6 class="text-center font-weight-bold" style="text-decoration: underline">You might be intrested in what has been searched the most recently</h6>
+	<div class="splide__track border border-dark ">
+		<div class="splide__list">
+			<div class="splide__slide p-1">
+                <p class="p-0 m-0 text-center">Image 1</p><img src="{%  static '/images/image6.jpg' %}" alt="productimage"></div>
+			<div class="splide__slide">
+                <p class="p-0 m-0 text-center">Image 1</p><img src="{%  static '/images/image6.jpg' %}" alt="productimage"></div>
+            <div class="splide__slide">
+                <p class="p-0 m-0 text-center">Image 1</p><img src="{%  static '/images/image6.jpg' %}" alt="productimage"></div>
+             <div class="splide__slide">
+                 <p class="p-0 m-0 text-center">Image 1</p><img src="{%  static '/images/image6.jpg' %}" alt="productimage"></div>
+             <div class="splide__slide">
+                 <p class="p-0 m-0 text-center">Image 1</p><img src="{%  static '/images/image6.jpg' %}" alt="productimage"></div>
+             <div class="splide__slide">
+                 <p class="p-0 m-0 text-center">Image 1</p><img src="{%  static '/images/image6.jpg' %}" alt="productimage"></div>
+		</div>
+	</div>
+</div>
+
+</div>
+{%  endblock %}
+
+{% block scripts %}
+ <script src="{% static '/js/splide.min.js' %}"></script>
+
+ <script>
+  $('document').ready(()=>{
+
+	new Splide( '.splide' ,{
+        {#type: 'loop',#}
+        {#focus:'center',#}
+		rewind   : true,
+        autoWidth: true,
+        trimSpace:true
+    }).mount();
+
+  })
+ </script>
+{% endblock %}

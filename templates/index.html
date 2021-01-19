@@ -1,0 +1,89 @@
+{%  extends 'skeleton.html' %}
+{%  load static %}
+{% block pageTitle %}
+<title>Homepage</title>
+{% endblock %}
+  {%  block pageContent %}
+     <div id=page-content">
+             <section id="welcome-search">
+                 <div class="itm">
+                       <div style="font-size: x-large" class="text-center blockquote  text-dark">
+                       " A tool to help you compare prices across different platforms "
+                   </div>
+                 </div>
+                 <div class="itm">
+                   <form >
+
+
+                      <div class="form-group">
+                      <div class="input-group">
+
+                            <input  name="query" type="search" placeholder="Type here to start the price comparison ..." class="form-control border-right-0 text-sm-center">
+                            <div class="input-group-append">
+                              <span class="input-group-text bg-white"><i class="fa fa-search" aria-hidden="true"></i></span>
+                            </div>
+                      </div>
+
+                      </div>
+
+                  </form>
+                 </div>
+             </section>
+              <section id="how-it-works">
+                  <h5 style="text-decoration: underline" class="font-weight-bold  text-center">How it Works</h5>
+                  <ul>
+                      <li>Search for a product
+                      <img src="{%  static '/images/image3.png' %}" alt="how-it-works"> </li>
+                      <li>Our Bot looks for matching product across <a href=""> these </a> different vendors
+                      <img src="{%  static '/images/image3.png' %}" alt="how-it-works"> </li>
+                      <li>Result is returned instantly with lowest price from each vendor
+                      <img src="{%  static '/images/image3.png' %}" alt="how-it-works"> </li>
+                      <li>You can optionally subscriber to receive updates when a product price goes down
+                      <img src="{%  static '/images/image3.png' %}" alt="how-it-works"> </li>
+                  </ul>
+              </section>
+              <section style="display: none" id="pricing">
+                  <h5 class="text-center font-weight-bold" style="text-decoration: underline">Our Pricing</h5>
+              <div class="card">
+                <div class="card-header p-0">
+                   <h6 class="text-center font-weight-bold text-success" >Basic Plan</h6>
+                </div>
+                  <div class="card-body">
+                   <ul >
+                       <li>No Charges</li>
+                       <li>No Registration Required</li>
+                       <li>Unlimited Searches</li>
+                       <li>Free customer Support</li>
+                   </ul>
+                  </div>
+                  <div class="card-footer">
+                    <div class="text-center text-info font-weight-bolder">Kes 00.00</div>
+                  </div>
+              </div>
+
+              </section>
+              <section id="subscribe">
+               <div >
+                 <h6 class="text-center text-sm-center p-1">
+                     Want to get updated when a product price drops ?
+                 </h6>
+                 <form>
+                     <div class="form-group">
+                         <input required placeholder="Enter your email ..." type="email" class="form-control m-2">
+                          <input required placeholder="Product name .." type="text" class="form-control m-2">
+                         <button type="submit" class="btn-info p-1 btn-sm text-center font-weight-bolder text-black-50">Subscribe Me</button>
+                     </div>
+                 </form>
+               </div>
+
+              </section>
+                <section id="vendors" >
+                  <h6 class="font-weight-bold text-center" style="text-decoration: underline">We compare prices across the following platforms</h6>
+                   <ul>
+                    <li><a class="font-weight-bold" href="">- jumia.co.ke <i class="fa fa-external-link-alt" aria-hidden="true"></i></a></li>
+                     <li><a  class="font-weight-bold" href="">- jumia.co.ke <i class="fa fa-external-link-alt" aria-hidden="true"></i></a></li>
+                     <li><a class="font-weight-bold" href="">- jumia.co.ke <i class="fa fa-external-link-alt" aria-hidden="true"></i></a></li>
+                  </ul>
+               </section>
+          </div>
+  {% endblock %}

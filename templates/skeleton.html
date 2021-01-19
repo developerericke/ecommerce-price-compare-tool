@@ -1,0 +1,148 @@
+{%  load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block pageTitle %}
+
+    {% endblock %}
+<link rel="stylesheet" href="{%  static '/css/index.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">#}
+{#    <link rel="stylesheet" href="{%  static '/css/all.min.css' %}">#}
+<link rel="stylesheet" href="{%  static '/css/bootstrap.min.css' %}">
+<style>
+    #scrollToTopBtn {
+  background-color: black;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 48px;
+  width: 48px;
+  position: fixed;
+
+        z-index: 30;
+}
+    @media screen and ( max-width: 640px ){
+#scrollToTopBtn{
+      top:85%;
+        left: 85%;
+}
+    }
+      @media screen and ( min-width: 640px ){
+#scrollToTopBtn{
+      top:85%;
+        left: 95%;
+}
+    }
+</style>
+{% block internalLinks %}
+
+{% endblock %}
+</head>
+<body>
+
+    <div id="page-wrapper" >
+      <div id="content-wrapper">
+      <nav class="navbar navbar-expand-md border-bottom border-dark shadow-sm p-0  ">
+              <!-- Brand -->
+              <a class="navbar-brand p-0 m-0 " href="/"><img class="p-0 m-0" src="{% static '/images/logo.jpg' %}" alt="logo" ></a>
+
+
+				<!-- Toggler/collapsibe Button -->
+          <div class="custom-toggler">
+              	<button class="navbar-toggler  " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+
+          </div>
+
+              <!-- Navbar links -->
+              <div class="collapse  navbar-collapse " id="collapsibleNavbar">
+                <ul class="navbar-nav   " >
+                  <li class="nav-item" >
+                    <a class="nav-link text-dark" href="/#welcome-search">Get started</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-dark" href="/#how-it-works">How it Works</a>
+                  </li>
+{#                  <li class="nav-item">#}
+{#                    <a class="nav-link text-dark" href="/#pricing">Pricing</a>#}
+{#                  </li>#}
+                        <li class="nav-item">
+                    <a class="nav-link text-dark " href="/#subscribe">Subscribe</a>
+                  </li>
+                </ul>
+              </div>
+     </nav>
+       {%  block pageContent %}
+
+
+
+       {% endblock %}
+      </div>
+           <button id="scrollToTopBtn" style="opacity: 0">☝️</button>
+      <div  id="footer-wrapper" >
+
+       <footer>
+
+           <h5 class="text-center font-weight-bold text-info" style="text-decoration: underline">Quick Links</h5>
+
+           <ul>
+               <li><a href="">How it Works</a></li>
+               <li><a href="">Get started</a></li>
+               <li><a href="">Pricing</a></li>
+               <li><a href="">Subscribe</a></li>
+               <li><a href="">admin@mail.com</a></li>
+           </ul>
+           <div class="text-center text-white m-3">
+               &copy 2021. All rights Reserved <span id="year"></span>
+           </div>
+       </footer>
+      </div>
+
+    </div>
+
+
+
+
+{#Scripts#}
+{#<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>#}
+{#<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>#}
+<script src="{%  static '/js/jquery-3.3.1.slim.min.js' %}"></script>
+<script src="{% static '/js/bootstrap.min.js' %}"></script>
+
+   {% block scripts %}
+
+    {% endblock %}
+<script>
+    var rootElement = document.documentElement
+    function scrollToTop() {
+  // Scroll to top logic
+  rootElement.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  })
+
+
+}
+let scrollToTopBtn = document.querySelector('#scrollToTopBtn')
+scrollToTopBtn.addEventListener("click", scrollToTop)
+     let pagewrapper = document.querySelectorAll('nav')[0]
+
+    document.addEventListener('scroll',function (){
+            if (Number(pagewrapper.getBoundingClientRect().top) < -270){
+                 scrollToTopBtn.style.opacity =1
+            }else{
+
+                scrollToTopBtn.style.opacity =0
+            }
+    })
+</script>
+</body>
+</html>
+
