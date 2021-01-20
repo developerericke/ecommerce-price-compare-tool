@@ -20,5 +20,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.homepage),
-    path('results/',views.resultsPage )
+    path('results/',views.resultsPage ),
+    
+    path('product/',views.userSearch)
 ]
