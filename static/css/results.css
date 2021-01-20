@@ -4,9 +4,14 @@
 }
 @media screen and ( max-width: 640px ){
  form{
-     width:80%;
-     margin:30px 10%;
+     width:95%;
+     margin:30px 2.5%;
  }
+    #price-control{
+        margin-top: 2%;
+        width: 80%;
+    }
+
  #discl{
      position: -webkit-sticky;
      position: sticky;
@@ -53,13 +58,34 @@
 form{
      width:60%;
      margin:50px 20%;
+    border: 1px solid grey;
+    border-radius: 10px 10px 20px 20px;
 
  }
- form input{
+
+ #search{
       font-size: x-large;
      height: 50px;
      min-height: 50px;
      max-height: 50px;
+
+ }
+ #price-control{
+     width: 70%;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+
+     margin: 2% 0 0 0;
+
+ }
+
+
+
+ .price-control{
+
+     text-align: center;
+     flex:0 0 49%;
  }
  #discl{
 position: relative;

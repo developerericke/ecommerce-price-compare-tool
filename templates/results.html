@@ -14,13 +14,37 @@
 <div id=page-content">
 <div id="discl" style="display: none" class="bg-warning text-dark font-weight-bold" >Note that this search is real time.The results you get are the latest as at the time you perform a search <span data-target="discl" style="font-size: medium;cursor: pointer" class="text-right close p-0 m-0 text-danger">x</span> </div>
 
-<form >
-<div class="form-group">
-   <div class="input-group mb-3">
-  <input type="search" name="searchproduct" class="form-control text-center border-right-0" placeholder="Search another product ...">
+<form method="get"  action="/product" >
+<div class="form-group  p-3">
+    <p class="p-0 m-0 bg-warning text-center font-weight-bold" style="font-size: small"><i class="fa fa-info-circle"></i> For more accurate results please provide minimum and maximum price for a product</p>
+    <p class="p-0 m-0  text-center text-danger" style="font-size: small;text-decoration: underline" id="errors"></p>
+    <div id="price-control" class="p-0 ">
+      <div class="price-control">
+
+           <div class="input-group mb-2">
+               <div class="input-group-prepend">
+                   <div class="input-group-text" style="font-size: small">Min price (Kes) <span class="text-danger"><sup>*</sup></span></div>
+               </div>
+               <input value="0" id="minimumprice" required style="font-size: small"  class="form-control"   type="number" name="minimumprice">
+           </div>
+
+       </div>
+      <div class="price-control">
+
+           <div class="input-group mb-2">
+               <div class="input-group-prepend">
+                 <div class="input-group-text" style="font-size: small">Max price (Kes) <span class="text-danger"><sup>*</sup></span></div>
+               </div>
+               <input style="font-size: small" required id="maximumprice" class="form-control " type="number" name="maximumprice">
+           </div>
+
+       </div>
+   </div>
+   <div class="input-group ">
+  <input type="search" id="search" name="q" required class="form-control text-center border-right-0" placeholder="Search products...">
        <div class="input-group-append bg-white">
            <div class="input-group-text bg-white">
-                <i class="fa fa-search"></i>
+               <button class="btn-sm btn btn-info font-weight-bold" type="submit">Search <i class="fa  fa-search"></i></button>
            </div>
 
        </div>
@@ -33,47 +57,67 @@
 
     <div class="card">
       <div class="card-header">
-      <div>Website1 : www.webiste1.com</div>
+      <div class="font-weight-bolder" style="letter-spacing: 1px">https://www.jumia.co.ke/</div>
       </div>
         <div class="card-body">
-          <img src="{% static '/images/image1.jpg' %}" alt="product image">
-          <div class="p-1">Kes 12,000</div>
-          <div class="p-1">lorem ipsum</div>
-          <div class="p-1">Ratings</div>
+          {% if jumia is not None %}
+          <img src="{{ jumia.image }}" alt="product image">
+          <div class="p-1">{{ jumia.name }}</div>
+          <div class="p-1">Kes {{ jumia.price }}</div>
+          <div class="p-1">{{ jumia.category }}</div>
+
+           {% else%}
+            <h6>No result found matching your search terms.Please try using more descriptive words</h6>
+            {% endif %}
+
 
         </div>
         <div class="card-footer text-center">
-        <a href="#" class="btn btn-sm btn-info">View on www.website1.com </a>
-        </div>
-    </div>
- <div class="card">
-      <div class="card-header">
-      <div>Website1 : www.webiste1.com</div>
-      </div>
-        <div class="card-body">
-          <img src="{% static '/images/image1.jpg' %}" alt="product image">
-          <div class="p-1">Kes 12,000</div>
-          <div class="p-1">lorem ipsum</div>
-          <div class="p-1">Ratings</div>
-
-        </div>
-        <div class="card-footer text-center">
-        <a href="#" class="btn btn-sm btn-info">View on www.website1.com </a>
+         {% if jumia is not None %}
+<a href="{{ jumia.link }}" class="btn btn-sm btn-info">View on www.website1.com </a>
+        {% endif %}
         </div>
     </div>
      <div class="card">
       <div class="card-header">
-      <div>Website1 : www.webiste1.com</div>
+      <div class="font-weight-bolder" style="color: forestgreen;letter-spacing: 1px">https://jiji.co.ke</div>
       </div>
         <div class="card-body">
-          <img src="{% static '/images/image1.jpg' %}" alt="product image">
-          <div class="p-1">Kes 12,000</div>
-          <div class="p-1">lorem ipsum</div>
-          <div class="p-1">Ratings</div>
+            {%  if jiji is not None %}
+          <img src="{{ jiji.image }}" alt="product image">
+          <div class="p-1">{{ jiji.name }}</div>
+          <div class="p-1">Kes {{ jiji.price }}</div>
+          <div class="p-1">{{ jiji.category }}</div>
+          {% else %}
+            <h6>No result found matching your search terms.Please try using more descriptive words</h6>
+           {% endif %}
+        </div>
+        <div class="card-footer text-center">
+             {% if jiji is not None %}
+        <a href="{{ jiji.link }}" class="btn btn-sm btn-info">View on www.website1.com </a>
+            {% endif %}
+        </div>
+    </div>
+     <div class="card">
+      <div class="card-header">
+      <div class="font-weight-bolder" style="color: sandybrown;letter-spacing: 1px">https://www.kilimall.co.ke</div>
+      </div>
+        <div class="card-body">
+        {% if kilimall is not None %}
+          <img src="{{ kilimall.image }}" alt="product image">
+          <div class="p-1">{{ kilimall.name }}</div>
+          <div class="p-1">Kes {{ kilimall.price }}</div>
+          <div class="p-1">{{ kilimall.category }}</div>
+
+           {% else%}
+            <h6>No result found matching your search terms.Please try using more descriptive words</h6>
+            {% endif %}
 
         </div>
         <div class="card-footer text-center">
-        <a href="#" class="btn btn-sm btn-info">View on www.website1.com </a>
+            {% if kilimall is not None %}
+        <a href="{{ kilimall.link }}" class="btn btn-sm btn-info">View on www.website1.com </a>
+            {% endif %}
         </div>
     </div>
 </div>
@@ -115,6 +159,42 @@
         autoWidth: true,
         trimSpace:true
     }).mount();
+	let errors = $('#errors')
+    let minimumprice = $('#minimumprice')
+    let maximumprice =  $('#maximumprice')
+	let searchinput = document.querySelector('#search')
+
+    minimumprice.on('input',()=>{
+        if (minimumprice.val() <0  || minimumprice.val()===''){
+            errors.html('Minimum Price is required !')
+            minimumprice.addClass('border border-danger')
+        }else if (minimumprice.val()>-1 && minimumprice.val()!==''){
+            errors.html('')
+            minimumprice.removeClass('border border-danger')
+        }
+    })
+      maximumprice.on('input',()=>{
+            if (maximumprice.val() <1  || maximumprice.val()===''){
+            errors.html('Maximum Price is required !')
+            maximumprice.addClass('border border-danger')
+        }else if (maximumprice.val()>-1 && maximumprice.val()!==''){
+            errors.html('')
+            maximumprice.removeClass('border border-danger')
+        }
+      })
+       searchinput.addEventListener('input',()=>{
+
+       })
+      searchinput.addEventListener('input',()=>{
+
+        if (maximumprice.val() <1  || maximumprice.val()===''){
+            errors.html('Maximum Price is required !')
+            maximumprice.addClass('border border-danger')
+        }else if (maximumprice.val()>-1 && maximumprice.val()!==''){
+            errors.html('')
+            maximumprice.removeClass('border border-danger')
+        }
+    })
 
   })
  </script>
